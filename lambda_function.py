@@ -7,8 +7,8 @@ def handler(event, context):
         'ec2',
         region_name='us-east-1',
         endpoint_url=os.environ.get('LOCALSTACK_ENDPOINT', 'http://172.17.0.1:4566'),
-        aws_access_key_id='255tyAzuXP5Tm8',
-        aws_secret_access_key='bdWF726h3e9EgR'
+        aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID', 'test'),
+        aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY', 'test'),
     )
 
     instance_id = event.get('queryStringParameters', {}).get('instance_id', os.environ.get('INSTANCE_ID'))
