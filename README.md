@@ -217,5 +217,4 @@ API_Driven/
 
 - L'endpoint LocalStack est `http://localhost:4566`
 - La Lambda utilise `http://172.17.0.1:4566` pour contacter LocalStack depuis son conteneur interne
-- Les credentials AWS (`test/test`) sont fictifs — c'est normal avec LocalStack
 - Si LocalStack redémarre, relancer `make deploy` pour recréer l'infrastructure
