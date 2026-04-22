@@ -5,6 +5,7 @@ REGION=us-east-1
 
 help:
 	@echo ""
+	@echo ""
 	@echo "  🚀 API-Driven Infrastructure — Commandes disponibles"
 	@echo ""
 	@echo "  make deploy       → Déploie toute l'infrastructure"
@@ -28,7 +29,7 @@ test-stop:
 test-start:
 	@echo "▶️  Démarrage de l'instance..."
 	@source .env && curl -s "$$AWS_ENDPOINT_URL/restapis/$$API_ID/prod/_user_request_/ec2?action=start&instance_id=$$INSTANCE_ID" | python3 -m json.tool
-	
+
 clean:
 	@echo "🧹 Suppression des ressources..."
 	@aws --endpoint-url=$(ENDPOINT) lambda delete-function --function-name ec2-controller 2>/dev/null || true
