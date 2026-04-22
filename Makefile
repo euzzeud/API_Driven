@@ -19,15 +19,15 @@ deploy:
 
 test-status:
 	@echo "📊 Statut de l'instance..."
-	@curl -s "$(ENDPOINT)/restapis/$(API_ID)/prod/_user_request_/ec2?action=status&instance_id=$(INSTANCE_ID)" | python3 -m json.tool
+	@source .env && curl -s "$$AWS_ENDPOINT_URL/restapis/$$API_ID/prod/_user_request_/ec2?action=status&instance_id=$$INSTANCE_ID" | python3 -m json.tool
 
 test-stop:
 	@echo "🛑 Arrêt de l'instance..."
-	@curl -s "$(ENDPOINT)/restapis/$(API_ID)/prod/_user_request_/ec2?action=stop&instance_id=$(INSTANCE_ID)" | python3 -m json.tool
+	@source .env && curl -s "$$AWS_ENDPOINT_URL/restapis/$$API_ID/prod/_user_request_/ec2?action=stop&instance_id=$$INSTANCE_ID" | python3 -m json.tool
 
 test-start:
 	@echo "▶️  Démarrage de l'instance..."
-	@curl -s "$(ENDPOINT)/restapis/$(API_ID)/prod/_user_request_/ec2?action=start&instance_id=$(INSTANCE_ID)" | python3 -m json.tool
+	@source .env && curl -s "$$AWS_ENDPOINT_URL/restapis/$$API_ID/prod/_user_request_/ec2?action=start&instance_id=$$INSTANCE_ID" | python3 -m json.tool
 
 clean:
 	@echo "🧹 Suppression des ressources..."

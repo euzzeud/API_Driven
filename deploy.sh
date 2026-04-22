@@ -78,6 +78,10 @@ RESULT=$(aws --endpoint-url=$AWS_ENDPOINT_URL lambda invoke \
   /tmp/response.json 2>/dev/null && cat /tmp/response.json)
 echo "   Réponse Lambda : $RESULT"
 
+echo "export API_ID=$API_ID" > .env
+echo "export INSTANCE_ID=$INSTANCE_ID" >> .env
+echo "export AWS_ENDPOINT_URL=$AWS_ENDPOINT_URL" >> .env
+
 echo ""
 echo "========================================="
 echo "  ✅ Déploiement terminé !"
