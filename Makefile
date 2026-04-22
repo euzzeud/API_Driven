@@ -28,11 +28,7 @@ test-stop:
 test-start:
 	@echo "▶️  Démarrage de l'instance..."
 	@source .env && curl -s "$$AWS_ENDPOINT_URL/restapis/$$API_ID/prod/_user_request_/ec2?action=start&instance_id=$$INSTANCE_ID" | python3 -m json.tool
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> 61677cc62358d627f8643b076788c8e9de309d1f
 clean:
 	@echo "🧹 Suppression des ressources..."
 	@aws --endpoint-url=$(ENDPOINT) lambda delete-function --function-name ec2-controller 2>/dev/null || true
